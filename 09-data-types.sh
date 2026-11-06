@@ -7,4 +7,5 @@ var3=dev
 echo "$var1+$var2"
 echo "$(var1+var2)"
 echo "$($var1+$var2)"
+echo "$((var1+var2))"
 echo "$(($var1+$var2))"
