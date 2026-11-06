@@ -16,3 +16,6 @@ echo "count is :: $COUNT"
 FRUITS=("Apple" "Banana" "Papaya")
 echo "ALL FRUITS: ${FRUITS[@]}"
 echo "First Fruit: ${FRUITS[0]}"
+
+name="Devendra"
+echo "${name}Reddy"
