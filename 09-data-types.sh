@@ -9,10 +9,10 @@ echo "$(var1+var2+var3)"
 echo "$((var1+var2+var3))"
 echo "$(($var1+$var2+$var3))"
 
-declare -i COUNT=5
+declare -i COUNT=5 #I'm declaring as Integer
 COUNT=COUNT+1
 echo "count is :: $COUNT"
 
-var=10
-var=$var+1
-echo"vars of var is :$var"
+FRUITS=("Apple" "Banana" "Papaya")
+echo "ALL FRUITS: ${FRUITS[@]}"
+echo "First Fruit: ${FRUITS[0]}"
