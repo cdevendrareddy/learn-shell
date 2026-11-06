@@ -14,5 +14,5 @@ COUNT=COUNT+1
 echo "count is :: $COUNT"
 
 var=10
-var=var+1
+var=$var+1
 echo"vars of var is :$var"
