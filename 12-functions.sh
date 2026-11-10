@@ -18,7 +18,7 @@ fi
 
 }
 
-dnf install nginxx -y
+dnf install nginx -y
 validate $? "Nginx installation"
 
 
