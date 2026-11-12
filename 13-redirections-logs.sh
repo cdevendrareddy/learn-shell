@@ -10,7 +10,7 @@ fi
 echo "proceeding.."
 
 mkdir -p $logs_folder
-echo "Script execution started at $(date  + %F %T )" | tee -a $logs_file
+echo "Script execution started at $(date  + "%F %T" )" | tee -a $logs_file
 validate(){
     if [ $1 -ne 0 ]; then
         echo "$2 is failed.." | tee -a $logs_file
@@ -30,4 +30,4 @@ validate $? "Mysql installation"
 
 echo "script executed successfully"
 
-echo "Script execution completed at $(date  + %F %T )" | tee -a $logs_file
+echo "Script execution completed at $(date  + "%F %T" )" | tee -a $logs_file
