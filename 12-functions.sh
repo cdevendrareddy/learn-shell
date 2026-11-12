@@ -2,7 +2,7 @@
 
 user_id=$(id -u)
 
-if [ $user_id -ne 0 ]; then
+if [ $user_id -ne 0 ]; then #ne means not equal to
    echo "Please run the script with sudo access"
    exit 1
 fi
