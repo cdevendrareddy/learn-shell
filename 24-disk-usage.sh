@@ -6,9 +6,9 @@ server_ip=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)  # Get the 
 
 while IFS= read -r line
 do
-    usage= $(echo $line | awk '{print $6}' | cut -d "%" -f1) # Extract the usage percentage from the line
+    usage=$(echo $line | awk '{print $6}' | cut -d "%" -f1) # Extract the usage percentage from the line
     partition=$(echo $line | awk '{print $7}')
-    if [ "$usage" -ge "$usage_threshold" ] ; then
+    if [ "$usage" -ge "$usage_threshold" ]; then
         message +="High disk usage alert on $partition: $usage <br>" # Append the alert message for the partition exceeding the threshold
     fi
 done <<< "$disk_usage"
