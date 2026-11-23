@@ -1,5 +1,6 @@
 #!/bin/bash
 
+script_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
 usage_threshold=80  # Set the usage threshold to 80%
 server_ip=$(curl http://169.254.169.254/latest/meta-data/local-ipv4)  # Get the server's local IP address
 message="<table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" width=\"100%\" style=\"border-collapse:collapse; font-size:14px; text-align:left;\">
@@ -36,11 +37,12 @@ while read -r filesystem type size used available usage partition; do
 done < <(df -hT)
 
 if [[ $has_alert != true ]]; then
+    echo "No filesystems are at or above ${usage_threshold}% usage; no alert email sent."
     exit 0
 fi
 
 message+="</tbody></table>
 <p style=\"margin:16px 0 0; color:#64748b; font-size:13px;\">Usage threshold: ${usage_threshold}%</p>"
 
-bash mail.sh "Devops Team" "$server_ip" "High Disk Usage Alert" "$message" "cheenepallidevendrareddy@gmail.com" "WARNING: High Disk Usage Alert"
+bash "$script_dir/mail.sh" "Devops Team" "$server_ip" "High Disk Usage Alert" "$message" "cheenepallidevendrareddy@gmail.com" "WARNING: High Disk Usage Alert"
 
